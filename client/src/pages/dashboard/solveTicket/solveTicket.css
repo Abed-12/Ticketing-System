@@ -1,0 +1,194 @@
+.solve-ticket {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    position: relative;
+    background-color: white;
+}
+
+/* Decorative accent */
+.solve-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(to bottom, #4361ee, #3a0ca3);
+    border-radius: 12px 0 0 12px;
+}
+
+/* Title styling */
+.solve-title {
+    margin-bottom: 1.5rem;
+    color: #2b2d42;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.solve-underline {
+    position: absolute;
+    bottom: 0;
+    width: 30%;
+    height: 4px;
+    background: linear-gradient(90deg, #4361ee, #3a0ca3);
+    border-radius: 2px;
+}
+
+/* Info row styling */
+.solve-info {
+    padding: 0.8rem 0;
+    margin: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    color: #495057;
+}
+
+.solve-grid{
+    display: grid;
+    grid-template-columns: 14% 83%; 
+    gap: 10px; 
+}
+
+/* Label styling */
+.solve-label {
+    display: inline-block;
+    width: 110px;
+    color: #2b2d42;
+}
+
+/* input */
+.solve-input {
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+    width: 100%;
+}
+
+.textarea-solve:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.textarea-solve {
+    font-size: 18px;
+    resize: none;
+}
+
+/* Button styling */
+.solve-actions{
+    display: flex;
+    justify-content: center;
+}
+
+.solve-btn {
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 8px 12px rgba(67, 97, 238, 0.3);
+    width: 25%;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+.solve-btn.save {
+    background: linear-gradient(90deg, #4361ee, #3a0ca3);
+}
+
+.solve-btn.cancel {
+    background-color: #48505891;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.solve-btn.cancel:hover {
+    background-color: #485058d0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.solve-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(67, 97, 238, 0.4);
+}
+
+.solve-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(67, 97, 238, 0.4);
+}
+
+@media (max-width: 1200px) {
+    .solve-ticket {
+        padding: 2rem;
+    }
+
+    .solve-title {
+        font-size: 1.8rem;
+    }
+
+    .solve-btn {
+        width: 48%;
+    }
+}
+
+@media (max-width: 992px) {
+    .solve-ticket {
+        padding: 1.8rem;
+    }
+
+    .solve-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .solve-btn {
+        width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .solve-ticket {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .solve-title {
+        font-size: 1.6rem;
+    }
+
+    .solve-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .solve-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .solve-ticket {
+        padding: 1rem;
+    }
+
+    .solve-title {
+        font-size: 1.4rem;
+    }
+
+    .solve-btn {
+        width: 100%;
+    }
+
+    .solve-label {
+        width: 90px;
+    }
+
+    .textarea-solve {
+        font-size: 16px;
+    }
+}
