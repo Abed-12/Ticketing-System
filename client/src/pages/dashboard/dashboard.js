@@ -28,7 +28,7 @@ const Dashboard = () => {
               openTickets={openTickets} 
               resolvedTickets={resolvedTickets} 
             />
-            <TicketList tickets={tickets} role={user.role} name={user.name} />
+            <TicketList role={user.role} name={user.name} />
           </div>
         </main>
       </div>
