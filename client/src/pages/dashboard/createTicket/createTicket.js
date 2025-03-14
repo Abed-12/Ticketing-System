@@ -31,7 +31,7 @@ const CreateTicket = () => {
 
     const onSubmit = async e => {
         e.preventDefault();
-        dispatch(addTicket({ title, description, status: 'Open', assignee: 'null', urgency, dateTime: formattedDate, creator: user.name }));
+        dispatch(addTicket({ title, description, status: 'Open', assignee: 'null', urgency, dateTime: formattedDate, creator: user.name, solve: 'Pending' }));
         navigate('/dashboard');
     }
 

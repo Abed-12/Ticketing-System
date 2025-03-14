@@ -10,7 +10,14 @@ const TicketList = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [assignTicket, setAssignTicket] = useState({ id: '', assignee: '' });
     
-    const tickets = useSelector((state) => state.tickets.list);
+    const tickets = useSelector((state) => 
+        state.tickets.list.filter((ticket) => 
+            props.role === 'Admin' 
+            ? ticket.creator === props.name || ticket.assignee === 'null' :
+            props.role === 'Technical' ? ticket.creator === props.name || ticket.assignee === props.name : true
+        )
+    );
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -83,7 +90,7 @@ const TicketList = (props) => {
                     {props.role === 'Admin' && (
                         <button className="action-btn assign" onClick={() => handleAssign(params.row.id)}>Assign</button>
                     )}
-                    {props.role === 'Technical' && (
+                    {props.role === 'Technical' && params.row.assignee === props.name && params.row.status === 'Open' && (
                         <button className="action-btn solve" onClick={() => handelSolve(params.row.id)}>Solve</button>
                     )}
                 </>
@@ -96,7 +103,7 @@ const TicketList = (props) => {
     return (
         <Paper sx={{ width: '100%' }}>
             <DataGrid
-                rows={props.tickets}
+                rows={tickets}
                 columns={columns}
                 initialState={{ pagination: { paginationModel } }}
                 pageSizeOptions={[5, 10]}
