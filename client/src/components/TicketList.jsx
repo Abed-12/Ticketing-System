@@ -11,11 +11,14 @@ const TicketList = (props) => {
     const [assignTicket, setAssignTicket] = useState({ id: '', assignee: '' });
     
     const tickets = useSelector((state) => 
-        state.tickets.list.filter((ticket) => 
-            props.role === 'Admin' 
-            ? ticket.creator === props.name || ticket.assignee === 'null' :
-            props.role === 'Technical' ? ticket.creator === props.name || ticket.assignee === props.name : true
-        )
+        state.tickets.list.filter((ticket) => {
+            if (props.role === 'Admin') {
+                return ticket.creator === props.name || ticket.assignee === 'null';
+            } else if (props.role === 'Technical') {
+                return ticket.creator === props.name || ticket.assignee === props.name;
+            }
+            return true;
+        })
     );
 
     const dispatch = useDispatch();
